@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Old way Async in javascripts</title>
+  </head>
+
+  <body>
+    <h1>Old Way Async In javascript</h1>
+  </body>
+  <script>
+    let getRecipt = () => {
+      setTimeout(() => {
+        const reciptId = [489, 1997, 253, 456];
+        console.log(reciptId);
+        setTimeout(
+          id => {
+            const recipt = {
+              title: "Beef Burger",
+              publisher: "Muhammad Salman Asif"
+            };
+            console.log(`${id} : ${recipt.title}`);
+            setTimeout(
+              publisher => {
+                const recipt1 = {
+                  title: "chicken Burger",
+                  publisher: "Muhammad Salman Asif"
+                };
+                console.log(`${publisher} : ${recipt1.title}`);
+                console.log(recipt1)
+              },
+              2000,
+              recipt.publisher
+            );
+          },
+          2000,
+          reciptId[2]
+        );
+      }, 2000);
+    };
+    getRecipt();
+  </script>
+</html>

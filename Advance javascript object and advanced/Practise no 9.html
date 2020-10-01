@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bubbling Technique Perform</title>
+</head>
+
+<body>
+    <div class="parent">
+        <section class="s1">
+            <div class="d1">
+                <button class="b1">Click me1</button>
+            </div>
+            <a href="#">Click here noobs</a>
+        </section>
+    </div>
+</body>
+<script>
+    let section1 = document.querySelector(".s1")
+    let div1 = document.querySelector(".d1")
+    let button1 = document.querySelector(".b1")
+    let parent = document.querySelector(".parent")
+    let anchor = document.querySelector("a")
+
+    // parent.addEventListener("click", (e) => {
+        
+    //     console.log("Baap sub ka");
+    // },true);
+
+    // section1.addEventListener("click", () => {
+    //     console.log("Section1");
+    // });
+    // div1.addEventListener("click", () => {
+    //     console.log("div1");
+    // });
+    // button1.addEventListener("click", (e) => {
+    //     console.log("button1");
+    // });
+    // button1.addEventListener("click", (e) => {
+    //     console.log("button2");
+    // });
+    // button1.addEventListener("click", (e) => {
+    //     event.stopImmediatePropagation();
+    //     console.log("button3");
+    // });
+    // button1.addEventListener("click", (e) => {
+    //     console.log("button4");
+    // });
+    anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        let ab=e.defaultPrevented; // true deti hai agar perform hogaya prevent default
+        console.log(ab);
+        console.log("hello anchor tag");
+    });
+
+</script>
+
+</html>

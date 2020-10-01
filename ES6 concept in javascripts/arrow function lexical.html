@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function lexical</title>
+    <style>
+        #box{
+            border: 1px solid black;
+            width: 200px;
+            margin: 20px;
+            padding: 10px;
+            font-size: 30px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .green{
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrow function lexical</h1>
+    <div class="green" id="box">This is a Green</div>
+    <div class="red" id="box">This is a red</div>
+    <div class="blue" id="box">This is a blue</div>
+</body>
+
+<script>
+    var color="black";
+    var position=100;
+    function Person(name){
+        this.name =name
+    }
+    //ES5
+    var box5={
+        color:"green",
+        position:1,
+        clickMe:function(){
+            var self=this; // fix issued of undefined
+            document.querySelector('.green').addEventListener("click",function(){
+                var str=`This is position is ${this.position} and color is ${this.color}`;
+                alert(str);
+            }.bind(this));// another trick fix issued of undefined
+        }
+    }
+    box5.clickMe();
+
+    //ES6
+    let box6={
+        color:"red",
+        position:2,
+        clickMe:()=>{
+            document.querySelector('.red').addEventListener("click",()=>{
+                let str=`This is position is ${this.position} and color is ${this.color}`;
+                alert(str);
+            });
+        }
+    }
+    box6.clickMe();
+    //ES5
+    let friends=["Minhaj","Salman","Ali","Umer","Saad"];
+    Person.prototype.myFriends=function(friends){
+        let args=friends.map(function(el){
+            return `${this.name} is friend with ${el}`;
+        }.bind(this))
+        console.log(args);
+    }
+    new Person("Salman").myFriends(friends);
+
+    //ES6
+    Person.prototype.myFriends=function(friends){
+        let args=friends.map((el)=>{
+            return `${this.name} is friend with ${el}`;
+        })
+        console.log(args);
+    }
+    new Person("Ali").myFriends(friends);
+</script>
+</html>

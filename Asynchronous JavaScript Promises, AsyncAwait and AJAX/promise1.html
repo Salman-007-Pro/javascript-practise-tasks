@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practise of promise in javascript</title>
+</head>
+<body>
+    <h1>Practise of promise in javascript</h1>
+</body>
+<script>
+let getReciptId=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        Ids=[12,35,621,23,523];
+        resolve(Ids);
+    },1000)
+})
+let getRecipt=(ids)=>{
+    return new Promise((resolve,reject)=>{
+     setTimeout(id=>{
+        const recipt ={title:"Tikka Pizza",publisher:"Muhammad Salman Asif",id:id}
+        resolve(recipt);
+     },2000,ids[3])   
+    })
+}
+let orderSomePublisher=(pub)=>{
+    return new Promise((resolve,reject)=>{
+     setTimeout(p=>{
+        const recipt ={title:"daal roti",publisher:p}
+        resolve(recipt);
+     },3000,pub)   
+    })
+}
+getReciptId.then(Ids=>{
+    console.log(Ids);
+    return getRecipt(Ids);
+}).then(obj=>{
+    console.log(obj);
+    return orderSomePublisher(obj.publisher);
+}).then(obj=>{
+    console.log(obj);
+})
+.catch(error=>{
+    console.log("Hello Beautiful coder can you marry me");
+})
+    
+
+</script>
+</html>

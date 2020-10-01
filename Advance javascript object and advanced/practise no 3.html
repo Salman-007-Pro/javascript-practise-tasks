@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 3 with callback function</title>
+</head>
+<body>
+    <h1>Practise no 3</h1>
+</body>
+<script>
+    //call back function
+    function generic(array,fn){
+        let arr=new Array();
+        for(let i=0;i<array.length;i++){
+            arr.push(fn(array[i]))
+        }
+        return arr
+    }
+    function calAge(el){
+        return 2019-el;
+    }
+    function isFullAge(el){
+        return el>=18;
+    }
+    let years=[1997,1990,2000,1980,1947,2002]
+    let ages=generic(years,calAge)
+    let fullAges=generic(ages,isFullAge)
+    console.log(years)
+    console.log(ages)
+    console.log(fullAges)
+</script>
+</html>

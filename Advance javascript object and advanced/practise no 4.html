@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 4</title>
+</head>
+<body>
+    <h1>Practise no 4 with return the function</h1>
+</body>
+<script>
+    function reaction(expression){
+        if (expression=="formal"){
+            return function(name){
+                console.log(name+"! What a beautiful Cars")
+            }
+        }
+        else if (expression=="informal"){
+            return function(name){
+                console.log(name+"! Oye jani Kab li yeh wali car treat tu do")
+            }
+        }
+        else{
+            console.log("you enter the wrong expressions OK jani")
+        }
+    }
+    let salman=reaction("formal");
+    salman("Salman")
+    reaction("informal")("saad")
+</script>
+</html>

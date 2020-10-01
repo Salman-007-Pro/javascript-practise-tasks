@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array with ES6</title>
+    <style>
+        .box{
+            margin: 20px;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            border: 1px solid black;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .green{
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Javascript with Array ES6 version</h1>
+    <div class="box green">i'm green</div>
+    <div class="box red">i'm red</div>
+    <div class="box blue">i'm blue</div>
+</body>
+<script>
+
+    //ES5
+    const box=document.querySelectorAll('.box');    
+    let boxes5=Array.prototype.slice.call(box);
+    // boxes5.forEach(function(cur){
+    //     cur.style.backgroundColor = 'red';
+    // });
+
+    // //ES6
+    let boxes6=Array.from(box);
+    // // boxes6.forEach(cur=> cur.style.backgroundColor="blue")
+    // Array.from(box).forEach(cur=> cur.style.backgroundColor="blue");
+
+    //ES5
+    // for(i=0;i<box.length;i++){
+    //     if(boxes5[i].className==="box blue") continue;
+    //     boxes5[i].style.backgroundColor="yellow";
+    //     boxes5[i].textContent="Changed to yellow";
+    // }
+    // //ES6
+    // for(const cur of boxes6){
+    //     if(cur.className.includes("blue")) continue;
+    //     cur.style.backgroundColor="purple";
+    //     cur.textContent="Changed to purple";
+    // }
+
+    //ES5
+    let ages=[24,25,68,12,34,64];
+    let fullAge5=ages.map(el =>{
+        return el>=18;
+    })
+    console.log(ages)
+    console.log(fullAge5);
+    console.log(fullAge5.indexOf(false))
+    console.log(ages[fullAge5.indexOf(false)]);
+
+    //ES6
+    let fullAge6=ages.findIndex(cur => cur <18);
+    console.log(fullAge6);
+    let ageCome=ages.find(cur => cur<18);
+    console.log(ageCome);
+</script>
+</html>

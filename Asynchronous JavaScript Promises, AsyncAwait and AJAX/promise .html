@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise in javascript</title>
+</head>
+<body>
+    <h1>Promise in javascript</h1>
+</body>
+<script>
+    let getReciptId=()=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                error=!true;
+                if(!error) resolve([456,197,233,456,316,236]);
+                else reject("Not getting any data from server");
+            },2000);
+        })
+    }
+    let getOrder=(Id)=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout((id)=>{
+                error=!true;
+                const recipt={Title:"tikka Pizza",publisher:"Muhammad Salman Asif",id:id};
+                if(!error) resolve(recipt);
+                else reject("Not getting any data from server");
+            },1000,Id);
+        })
+    }
+    let getPublisher=(Pub)=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout((pub)=>{
+                error=true;
+                const recipt={Title:"kabab Roll",publisher:pub};
+                if(!error) resolve(recipt);
+                else reject("Not getting any data from server");
+            },1000,Pub);
+        })
+    }
+    getReciptId().then((Ids)=>{
+        return getOrder(Ids[2])
+    }).then((obj)=>{
+        console.log(`${obj.id} : ${obj.Title}`);
+        return getPublisher(obj.publisher); 
+    }).then((obj)=>{
+        console.log(`${obj.publisher} : ${obj.Title}`);
+    })
+    .catch((msg)=>{
+        console.log(msg);      
+    })
+    
+</script>
+</html>

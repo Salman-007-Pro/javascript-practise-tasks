@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Parameter</title>
+</head>
+<body>
+    <h1>Dafault Parameter</h1>
+</body>
+<script>
+    //ES5
+    function Person(name,last,age,country){
+        age==undefined ? age=22 : age=age;
+        country==undefined ? country="Pakistan" : age=country;
+        this.name=name;
+        this.last=last;
+        this.country=country;
+        this.age=age;
+    }
+    let salman=new Person("Muhammad Salman","Muhammad Asif",22,"Pakistan");
+    console.log(salman)
+    let ali=new Person("Muhammad Ali","Muhammad Zafar");
+    console.log(ali);
+
+    //ES6
+    function Person1(name,last,age=23,country="Turkey"){
+        this.name=name;
+        this.last=last;
+        this.country=country;
+        this.age=age;
+    }
+    let saad=new Person1("Muhammad Saad","Muhammad Asif");
+    console.log(saad);
+</script>
+</html>

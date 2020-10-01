@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 6 with closures</title>
+</head>
+<body>
+    <H1>Practise no 6 with Closures</H1>
+</body>
+<script>
+    function retirement(retire){
+        let a=" Years are left for retirements and do the jobs, donot counts the year"
+        return function(years){
+            let age=2019-years;
+            console.log((retire-age)+a+" And currently my age is "+age)
+        }
+    }
+    let retirementPak=retirement(65);
+    retirementPak(1997);
+</script>
+</html>

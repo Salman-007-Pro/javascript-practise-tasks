@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript in Async await</title>
+</head>
+<body>
+    <h1>Javascript in async await</h1>
+</body>
+<script>
+    let getInstitudeName=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const name="Sir Syed University"; 
+            resolve(name);
+        },1200)
+    })
+    let getClassName=(n)=>{
+        return new Promise((resolve,reject)=>{
+        setTimeout((name)=>{
+            const details={Name:name,Class:"Software Engineering"} 
+            resolve(details);
+            },1200,n)
+         })
+    }
+    let getStudentName=(n)=>{
+        return new Promise((resolve,reject)=>{
+        setTimeout((obj)=>{
+            error=true;
+            if(error){
+                const details={...obj,student:"Muhammad Salman Asif"} 
+            resolve(details);    
+            }
+            else reject("Hello duniya");
+            
+            },1200,n)
+         })
+    }
+    async function getStart(){
+        try{
+            const Name= await getInstitudeName;
+        console.log(Name)
+        const detail = await getClassName(Name);
+        console.log(detail);
+        const details = await getStudentName(detail);
+        console.log(details);
+        return "Assalamualaikum Muhammad Salman Asif";
+        }
+        catch(error){
+            console.log(error);
+            return "Hello Duniya Chai peelo";
+        }
+    }
+    let res=getStart().then(res=>{
+        console.log(res);   
+    });
+    console.log(res);
+</script>
+</html>

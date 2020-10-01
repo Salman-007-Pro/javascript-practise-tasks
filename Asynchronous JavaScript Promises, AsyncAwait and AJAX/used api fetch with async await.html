@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using api with async await in javascript </title>
+</head>
+<body>
+    <h1>Async await with fetch api in javascript</h1>
+</body>
+<script>
+    async function getInfoWeather(woeid){
+        try{
+            const jsonData=await fetch(`https://www.metaweather.com/api/location/${woeid}/`);
+            const data=await jsonData.json();
+            console.log(data); 
+            const ajj=data.consolidated_weather[0];
+            console.log(ajj);
+            console.log(`The country Name:${data.parent.title} and City name:${data.title}`);
+            console.log(`ajj ka high temperature:${ajj.max_temp} aur low temperature:${ajj.min_temp} and weather name:${ajj.weather_state_name}`)
+            return ajj;   
+        }catch(error){
+            console.log(error);
+        }
+        
+    }
+    let ajjkadata;
+    getInfoWeather("44418").then( data=>{
+        ajjkadata=data;
+        console.log(ajjkadata);
+    });
+    console.log(ajjkadata);
+</script>
+</html>

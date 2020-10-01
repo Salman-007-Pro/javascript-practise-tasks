@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 1</title>
+</head>
+<body>
+    <h1>Advanced javascript practise no 1</h1>
+</body>
+<script>
+    let Human=function(fname,lname,year,ismarried,qualification){
+        this.fname=fname,
+        this.lname=lname,
+        this.year=year,
+        this.ismarried=ismarried,
+        this.qualification=qualification
+    }
+    let salman=new Human("Muhammad Salman","Asif",1997,false,"matric")
+    console.log(salman)
+    Human.prototype.calculateAge=function(){
+        console.log(2019-this.year)
+    }
+    salman.calculateAge();
+    let ali={
+        name:"Muhammad Ali Salman",
+        age:5,
+    }
+    let calAge={
+        cal:function(){
+            console.log(2019-this.age)
+        }
+    }
+    ali=Object.create(calAge,{
+        name:{value:"Muhammad Ali Salman"},
+        age:{value:5},
+    })
+    console.log(ali)
+    ali.cal()
+</script>
+</html>

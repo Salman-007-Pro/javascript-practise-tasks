@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class with sub Class</title>
+</head>
+<body>
+    <h1>Inherit concept review</h1>    
+</body>
+<script>
+    //ES5
+    let Person5=function(name,year,country){
+        this.name=name;
+        this.year=year;
+        this.country=country;
+    }
+    Person5.prototype.calAge=function(){
+        this.age= 2020-this.year;
+        return this.age;
+    }
+    let extendPerson5=function(name,year,country,jobs,married){
+        Person5.call(this,name,year,country);
+        this.jobs=jobs;
+        this.married=married;
+    }
+    
+    extendPerson5.prototype=Object.create(Person5.prototype);
+    let ali=new Person5("Muhammad ali",1995,"Pakistan");
+    let salman=new extendPerson5("Muhammad Salman Asif",1997,"Pakistan","Engineering","single");
+    console.log(salman.calAge())
+    console.log(ali.calAge())
+    
+    //ES6
+    class person6{
+        constructor(name,year,country){
+            this.name=name;
+            this.year=year;
+            this.country=country;
+        }
+        calAge(){
+            this.age=2020-this.year;
+        }
+    }
+    class extendPerson6 extends person6{
+        constructor(name,year,country,job,married){
+            super(name,year,country);
+            this.job=job;
+            this.married=married;
+        }
+        greeting(){
+            console.log("Hello World");
+        }
+    }
+    let salman1= new extendPerson6("Muhammad Salman Asif",1997,"Pakistan","Engineering","Single");
+    salman1.calAge();
+    console.log(salman1.age);
+</script>
+</html>

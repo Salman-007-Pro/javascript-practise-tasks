@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeStructuring in javacript</title>
+</head>
+<body>
+    <h1>Destructuring in javascript</h1>
+</body>
+<script>
+    //ES6
+    let years=["Muhammad Salman Asif",22];
+    let [name1,age1]=years;
+    console.log(name1)
+    console.log(age1);
+
+    let person={
+        name:"Muhammad Salman Aisf",
+        age:24
+    }
+    let {name:a, age:b}=person;
+    console.log(a)
+    console.log(b);
+
+    function calAge(year){
+        let now = new Date().getFullYear()-year;
+        return [now,now<65 ? "The person is not retire and year remain "+65-now : "The person is retire"];
+    }
+    let [age3,retirement]=calAge(1997);
+    console.log(age3)
+    console.log(retirement);
+</script>
+</html>

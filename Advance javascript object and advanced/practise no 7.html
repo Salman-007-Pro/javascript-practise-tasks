@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 7</title>
+</head>
+<body>
+    <H1>Practise no 7 with Apply call and bind</H1>
+</body>
+<script>
+    let Salman={
+        name:"Muhammad Salman Asif",
+        year:1997,
+        calAge:function(){
+            this.age=2019-this.year
+        }
+    };
+    let Minhaj={
+        name:"Muhammad Minhaj Khan",
+        year:1995,
+    }
+    Salman.calAge();
+    console.log(Salman.age)
+    Salman.calAge.call(Minhaj)
+    console.log(Minhaj.age)
+
+    
+    function generic(array,fn){
+        let arr=new Array();
+        for(let i=0;i<array.length;i++){
+            arr.push(fn(array[i]))
+        }
+        return arr
+    }
+    function calAge(el){
+        return 2019-el;
+    }
+    function isFullAge(limit,el){
+        return el>=limit;
+    }
+    let years=[1997,1990,2000,1980,1947,2002]
+    let ages=generic(years,calAge)
+    let fullAges=generic(ages,isFullAge.bind(this,30))
+    console.log(years)
+    console.log(ages)
+    console.log(fullAges)
+</script>
+</html>

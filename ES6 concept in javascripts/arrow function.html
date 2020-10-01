@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function in javscript es6</title>
+</head>
+<body>
+    <h1>Arrow function and different between previous version </h1>
+</body>
+<script>
+    let years=[1997,1950,1947,1847,1918,1936];
+    // ES5
+    var ages5=years.map(function(el,index){
+        return 2020-el
+    })
+    console.log(ages5);
+
+    //es6
+    let ages6=years.map((el,index)=>{
+        const now=new Date().getFullYear();
+        let age=now-el;
+        return `Age of element ${index+1} : ${age}`
+    })
+    console.log(ages6);
+
+</script>
+</html>

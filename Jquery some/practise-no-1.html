@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 1</title>
+    <style>
+        .d1{
+            background-color: red;
+            display: inline-block;
+            font-size: 10rem;   
+            padding: 2rem;
+            margin: 1rem;
+        }
+        .d2{
+            background-color: aqua;
+            display: inline-block;
+            font-size: 10rem;
+            padding: 2rem;
+            margin: 1rem;
+        }
+        .div{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p>This is a test and i am here to hide this text</p>
+    <button>Click here to hide this paragraphy</button>
+    <br><br>
+    <form action="#">
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+    </form>
+    <div class="d1 div">Salman</div>
+    <div class="d2">Asif</div>
+    <button>Click to toggle</button>
+</body>
+<script src="jquery/jquery-3.4.1.min.js"></script>
+<script>
+    $("button").click(function(){
+        $("p").toggle("2");
+    })
+    $("button").click(function(){
+        $(".d1,.d2").toggleClass("div");
+    })
+</script>
+</html>

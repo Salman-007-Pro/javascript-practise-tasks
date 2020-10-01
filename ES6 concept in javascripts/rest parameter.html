@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest parameter</title>
+</head>
+<body>
+    <h1>Rest Parameter in Javascritp</h1>
+</body>
+<script>
+    //ES5
+    function calFullAge5(limit){
+        let arrYear=Array.prototype.slice.call(arguments,1);
+        arrYear.forEach(cur => {
+            console.log((2020-cur)>=limit);
+        });
+    }
+    // calFullAge5(100,1997,1995,1962,1987,1356,1468,2016);
+
+    //ES6
+    function calFullAge6(limit,...years){
+        years.forEach(cur => {
+            let now = new Date().getFullYear();
+            console.log((now-cur)>=limit);
+        })
+    }
+    calFullAge6(150,1997,1990,1985,1984,1689);
+</script>
+</html>

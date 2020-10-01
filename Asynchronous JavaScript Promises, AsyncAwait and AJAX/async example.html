@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous Javascript</title>
+</head>
+<body>
+    <h1>Asynchronous Javacsripts</h1>
+</body>
+<script>
+    let second=()=>{
+        setTimeout(() => {
+            console.log("This is a Second")    
+        }, 2000);
+        
+    }
+    let first=()=>{
+        console.log("this is a First")
+        second();
+        console.log("End is here");
+    }
+    first();
+</script>
+</html>

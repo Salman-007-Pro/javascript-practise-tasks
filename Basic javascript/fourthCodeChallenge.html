@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codeing Challenge # 4</title>
+    <style>
+        *,*::after,*::before{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 10px;
+        }
+        body{
+            line-height: 1.7;
+        }
+        .heading-primary{
+            text-align: center;
+            text-transform: uppercase;
+            color:transparent;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+            -webkit-background-clip: text;
+            margin: 0 auto;
+            font-size:4rem;
+        }
+        .heading-primary--main{
+            display:block;
+        }
+        .paragraph{
+            font-size:1.6rem ;
+            margin:5rem 4rem 0 4rem;
+            text-align: justify;
+        }
+        .paragraph__setting{
+            text-align: center;
+            display:block;
+            margin-bottom: 2rem;
+        }
+        .paragraph__ulist{
+            display: inline-block;
+            list-style: none;
+            margin-left: 11rem;
+            padding: 5px;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+        }
+        .paragraph__ulist li{   
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading-primary">
+        <span class="heading-primary-main">Code Challenge # 4</span>
+    </h1>
+    <div class="paragraph">
+    <p class="paragraph__setting">
+       Q: Let remember the first coding challenge where Mark and John compare their BMI. Let now implements the same functionality with objects and methods.
+        <ul class=paragraph__ulist>
+            <li>1. For each of them, create an object with properties for their full name, mass, and height.</li>
+            <li>2. Then, add a method to each object to calculate the BMI. Save the BMI to the object and also return if from the method.</li>
+            <li>3. In the end, log to the console who has the highest BMI, together with the full name and the respective BMI. Donot forget ther might have the same BMI.</li> 
+            <li><strong>Remember: </strong>BMI = Mass / height * 2. (mass in kg and height in meter).</li>
+        </ul>
+    </p>
+</div>
+<script>
+    var john ={
+        fullname:"John smith",
+        mass:50,
+        height:3,
+        calBMI:function(){
+            this.BMI=(this.mass/(this.height*2))
+        }
+    }
+    var mary ={
+        fullname:"Mary Den",
+        mass:50,
+        height:3,
+        calBMI:function(){
+            this.BMI=(this.mass/(this.height*2))
+        }
+    }
+    john.calBMI();
+    mary.calBMI();
+    john.BMI!=mary.BMI ? (john.BMI>mary.BMI ? console.log("The "+john.fullname+" is highest BMI{"+john.BMI+"}") : console.log("The "+mary.fullname+" is highest BMI{"+mary.BMI+"}")) : console.log("The Both BMI is Same") 
+</script>
+
+</body>
+</html>

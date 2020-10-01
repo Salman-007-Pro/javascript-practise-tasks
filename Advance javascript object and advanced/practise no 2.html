@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 2</title>
+</head>
+<body>
+    <h1>Practise no 2</h1>
+</body>
+<script>
+    //Object make 
+    let Car=function(name,companyName,carModel,color){
+        this.name=name,
+        this.companyName=companyName,
+        this.carModel=carModel,
+        this.color=color
+    }
+    Car.prototype.calOlder=function(){
+        console.log(2019-this.carModel+" year older model")
+    }
+    let ferrari=new Car("z200","ferrari",2018,"Red")
+    console.log(ferrari)
+    ferrari.calOlder()
+    ferrari.fname="Muhammad Salman Asif"
+    console.log(ferrari)
+    let bmw=Object.create(new Car("asd","asd","asd","asd"))
+    console.log(bmw)
+    bmw.fname="asd"
+    console.log(ferrari)
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>firstCodeingChallenge</title>
+    <style>
+        *,*::after,*::before{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 10px;
+        }
+        body{
+            line-height: 1.7;
+        }
+        .heading-primary{
+            text-align: center;
+            text-transform: uppercase;
+            color:transparent;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+            -webkit-background-clip: text;
+            margin: 0 auto;
+            font-size:4rem;
+        }
+        .heading-primary--main{
+            display:block;
+        }
+        .paragraph{
+            font-size:1.6rem ;
+            margin:5rem 4rem 0 4rem;
+            text-align: justify;
+        }
+        .paragraph__setting{
+            text-align: center;
+            display:block;
+            margin-bottom: 2rem;
+        }
+        .paragraph__ulist{
+            display: inline-block;
+            list-style: none;
+            margin-left: 11rem;
+            padding: 5px;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+        }
+        .paragraph__ulist li{   
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading-primary">
+        <span class="heading-primary-main">Code Challenge # 1</span>
+    </h1>
+    <div class="paragraph">
+    <p class="paragraph__setting">
+        Mark and john are trying to compare their BMI (Body MASS INDEX), which is calculated using the formula:
+        BMI = mass / height*2 = mass / (height * height).
+        (mass in kg and height in meter).
+        <ul class=paragraph__ulist>
+            <li>Store Mark's and John's mass and height in variables</li>
+            <li>Calculate both their BMIs</li>
+            <li>Create a boolean variable containing information about whether Mark has a higher BMI than John</li>
+            <li>Print a string to the console containing the variable from step 3. (Something like "Is Mark's BMI higher than John's? true").</li>
+        </ul>
+    </p>
+</div>
+<script>
+    function cal_BMI(mass,height){
+        BMI= mass / (height *2)
+        return BMI
+    }
+    // yeh coding challenge no 1 hai
+    var massMark=prompt("Enter the mass of Mark's(in KG): ")
+    var heightMark=prompt("Enter the height of Mark's(in Meter): ")
+    var massJohn=prompt("Enter the mass of John's(in KG): ")
+    var heightJohn=prompt("Enter the height of John's(in Meter): ")
+    var massMark=parseInt(massMark, 10);
+    var heightMark=parseInt(heightMark, 10);
+    var massJohn=parseInt(massJohn, 10);
+    var heightJohn=parseInt(heightJohn, 10);
+    
+    var bmiMark=cal_BMI(massMark,heightMark);
+    var bmiJohn=cal_BMI(massJohn,heightJohn);
+    console.log("BMI Mark: "+bmiMark)
+    console.log("BMI John: "+bmiJohn)
+    var higherBmi=bmiMark>bmiJohn
+    console.log("Is Mark's BMI higher than John's? "+higherBmi)
+</script>
+</body>
+</html>

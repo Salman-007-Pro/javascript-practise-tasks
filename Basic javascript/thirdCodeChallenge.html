@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codeing Challenge # 2</title>
+    <style>
+        *,*::after,*::before{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 10px;
+        }
+        body{
+            line-height: 1.7;
+        }
+        .heading-primary{
+            text-align: center;
+            text-transform: uppercase;
+            color:transparent;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+            -webkit-background-clip: text;
+            margin: 0 auto;
+            font-size:4rem;
+        }
+        .heading-primary--main{
+            display:block;
+        }
+        .paragraph{
+            font-size:1.6rem ;
+            margin:5rem 4rem 0 4rem;
+            text-align: justify;
+        }
+        .paragraph__setting{
+            text-align: center;
+            display:block;
+            margin-bottom: 2rem;
+        }
+        .paragraph__ulist{
+            display: inline-block;
+            list-style: none;
+            margin-left: 11rem;
+            padding: 5px;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+        }
+        .paragraph__ulist li{   
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading-primary">
+        <span class="heading-primary-main">Code Challenge # 3</span>
+    </h1>
+    <div class="paragraph">
+    <p class="paragraph__setting">
+       Q: John and his family went on a holiday and went to 3 different restaurants. The bills were $124 ,$48 and $268.
+        <ul class=paragraph__ulist>
+            <li>To tip the waiter a fair amount, John created a simple tip calculator (as a function). He likes to tip 20% of the bills when the bills is less than $50, 15% when the bill is between $50 and $200, and 10% if the bill is more than $200.</li>
+            <li>In the end , John would like to have 2 arrays:</li>
+            <li>1. Containing all three tips (one of each bills)</li> 
+            <li>2. Containing all three final paid amounts (bill + tip)</li>
+            <li>(<strong>Note: </strong>To calculate 20% of a value, simply multiply if with 20/100 = 0.2)</li>
+        </ul>
+    </p>
+</div>
+<script>
+    var johnBills=[124,48,268]
+    var johnTip=[]
+    johnBills.forEach(calTip)
+    console.log(johnTip)
+    var calBill=function(){
+        arr=[]
+        for (i=0;i<johnBills.length;i++){
+            arr.push(johnBills[i]+johnTip[i])
+        }
+        return arr
+    }
+    var johnTotalBill=calBill();
+    console.log("Total bills Array")
+    display(johnTotalBill);
+    console.log("Total Tips Array")
+    display(johnTip);
+
+    function calTip(item){
+        if (item < 50){
+            johnTip.push(item*0.2)
+        }
+        else if (item>=50 && item<=200){
+            johnTip.push(item*0.15)
+        }
+        else{
+            johnTip.push(item*0.1)
+        }
+    }
+    function display(a){
+        for (i=0;i<a.length;i++){
+            console.log(a[i])
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spreads Operator</title>
+</head>
+<body>
+    <h1>Spread Operator in javascript</h1>
+</body>
+<script>
+    //ES5
+    function calSum(a,b,c,d){
+        return a+b+c+d;
+    }
+    let sum1=calSum(8,8,8,8);
+    console.log(sum1);
+    arr=[8,8,8,8];
+    let sum2=calSum.apply(null,arr);
+    console.log(sum2);
+
+    //ES6
+    let sum3=calSum(...arr);
+    console.log(sum3);
+
+    // function cal(a){
+    //     return a;
+    // }
+    // let sum4=cal(...arr);
+    // console.log(sum4);
+</script>
+</html>

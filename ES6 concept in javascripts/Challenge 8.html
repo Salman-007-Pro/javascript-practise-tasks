@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge no 8</title>
+</head>
+<body>
+    <h1>Challenge no 8</h1>
+    <p>suppose that you are working in a small town administration and you are in charge of two town elements:</p>
+    <ol>
+        <li>Parks</li>
+        <li>Streets</li>
+    </ol>
+    <p>It a very small town,so right now there are only 3 parks and 4 streets. All parks and streets have a name and a build year.</p>
+    <p>At an end-of-year meeting, your boss wants a final reports with the following:</p>
+    <ol>
+        <li>Tree density of each park in the town (formula: number of trees/park area)</li>
+        <li>Average age of each town's park (formula: sum of all ages/number of parks)</li>
+        <li>The name of the park that has more than 1000 trees</li>
+        <li>Total and average length of the town's streets</li>
+        <li>Size classification of all Streets: tiny/small/normal/big/huge. If the size is unknown, the default is normal</li>
+    </ol>
+    <p>All the report data should be printed to the console.</p>
+    <p>Hint: Use some of the Es6 features: Classes, subClasses, template Strings, default parameter, maps, arrow functions, destructuring, etc</p>
+</body>
+<script>
+    class Elements{
+        constructor(name,buildYear){
+            this.name=name;
+            this.buildYear=buildYear;
+        }
+    }
+    class Parks extends Elements{
+        constructor(name,buildYear,area,numberTree){
+            super(name,buildYear);
+            this.area=area;
+            this.numberTree=numberTree;
+        }
+        densityTree(){
+                this.density=this.numberTree/this.area;
+                console.log(`The ${this.name} park has a ${this.density} tree density per ${this.area} per KM`);
+        }
+    }
+    class Streets extends Elements{
+        constructor(name,buildYear,length,size=3){
+            super(name,buildYear);
+            this.length=length;
+            this.size=size;
+        }
+        classificationSize(){
+            const classified=new Map();
+            classified.set(1,"Tiny");
+            classified.set(2,"Small");
+            classified.set(3,"Normal");
+            classified.set(4,"Big");
+            classified.set(5,"Huge");
+            console.log(`The ${this.name} Street is a ${classified.get(this.size)} town`);
+        }
+    }
+    function calAge(arr){
+        const sum=arr.reduce((pre,cur) => pre+cur,0);
+        return [sum,sum/arr.length]
+    }
+    let allparks=[new Parks("Model",1968,1.5,899),new Parks("Venue",1997,2,400),new Parks("New",1947,3,1000)];
+    let allstreets=[new Streets("No 9",1968,2,3),new Streets("Venue",1997,1,1),new Streets("Buffer Zone",1947,10,5),new Streets("Block N",1947,5)];
+    function allParks(p){
+        //Tree density of each parks
+        console.log("<===Parks report===>");
+        p.forEach(cur => {
+            cur.densityTree();
+        });
+
+        //Total and Average Age of All parks
+        let [Total,Average]=calAge(p.map(cur=> new Date().getFullYear()-cur.buildYear));
+        console.log(`The Total Age ${Total} and Average Age of Each Park is ${Average}`);
+
+        //The name of Park >= 1000
+        const index=p.map(cur => cur.numberTree).findIndex(cur => cur>=1000);
+        console.log(`The ${p[index].name} Park has a alot of tree who greater than 1000`);
+
+    }
+    function allStreets(s){
+        console.log("<===Streets Report===>");
+        //Total and average length of street
+        let [Total,Average]=calAge(s.map(cur=> cur.length));
+        console.log(`The Total length ${Total} KM and Average Length of Each Street is ${Average} kM`);
+
+        //Classification of All Streets
+        s.forEach(cur => {
+            cur.classificationSize();
+        });
+    }
+
+    allParks(allparks);
+    allStreets(allstreets);
+</script>
+</html>

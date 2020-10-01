@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Api Through fetch</title>
+</head>
+<body>
+    <h1>Fetch Api in javascript</h1>    
+</body>
+<script>
+    function getWeatherInfo(woeid){
+        fetch(`https://www.metaweather.com/api/location/${woeid}/`,{
+        mode: 'cors',
+    }).then((data)=>{
+        // console.log(data);
+        return data.json();
+    }).then(data=>{
+        const ajj=data.consolidated_weather[0];
+        console.log(ajj);
+        console.log(`The country Name:${data.parent.title} and City name:${data.title}`);
+        console.log(`ajj ka high temperature:${ajj.max_temp} aur low temperature:${ajj.min_temp} and weather name:${ajj.weather_state_name}`)
+    })
+    .catch(error =>{
+        console.log(error);
+    });
+    }
+   getWeatherInfo("44418");
+   getWeatherInfo("2487956");
+</script>
+</html>

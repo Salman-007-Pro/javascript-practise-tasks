@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map in Javascript</title>
+</head>
+<body>
+    <h1>Map in Javascript</h1>
+</body>
+<script>
+    let question = new Map();
+    question.set("Question no 1","What is Your Favourite Car");
+    question.set("Select","Option plz");
+    question.set(1,"Ferrari");
+    question.set(2,"Mercedes-Benz");
+    question.set(3,"Lamborghini")
+    question.set("correct",1);
+    question.set(true,"Your Answer is Correct :)");
+    question.set(false,"try again plz wrong");
+    console.log(question.get("Question no 1"));
+    console.log(question.get("Select"));
+    for(let [key,value] of question.entries()){
+        if(typeof(key) === "number"){
+            console.log(`${key} : ${value}`);
+        }
+    }
+    let ans =parseInt(prompt("Enter your answer: "));
+    console.log(question.get(ans===question.get("correct")));
+    console.log(question);
+    question.clear();
+    console.log(question);
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 8 with advanced javascript with all concept</title>
+</head>
+<body>
+    <h1>Advances Javascript with all Concepts</h1>
+</body>
+<script>
+    let text=function(){
+        console.log("Assalamualaikum")
+    }
+    text();
+    let Person=function(name,year){
+        this.name=name;
+        this.year=year;
+    }
+    let calAge={
+        calAge:function(){
+            console.log(2019-this.year)
+        }
+    }
+    Person.prototype.calage=calAge.calAge;
+    let salman=new Person("Muhammad Salman Asif",1997);
+    console.log(salman);
+    salman.calage();
+    let minhaj=Object.create(calAge,{
+        name:{value:"Muhammad Minhaj Khan"},
+        year:{value:1996}
+    })
+    let ali={
+        name:"Muhammad Ali",
+        year:1995,
+    }
+    console.log(minhaj)
+    minhaj.calAge();
+    console.log(ali);
+    minhaj.calAge.call(ali);
+    function weather(describes){
+        let today=describes;
+        return function(day){
+                console.log(day+" is a "+describes);
+            }
+    }
+    weather("beautiful")("today");
+    let monday=weather("fabulous");
+    console.log(monday("Wednesday"));
+    function genertic(arr,fn){
+        array=new Array();
+        for(i=0;i<arr.length;i++){
+            array.push(fn(arr[i]))
+        }
+        return array;
+    }
+    function Age(a){
+        return 2019-a;
+    }
+    function isFullAge(a){
+        return a>18;
+    }
+    function calFullAge(a,b){
+        return b>a;
+    }
+    let years=[1997,1995,1665,1420,1568,2008]
+    let ages=genertic(years,Age);
+    console.log(ages);
+    let fullAge=genertic(ages,isFullAge);
+    console.log(fullAge);
+    let CalAge=genertic(ages,calFullAge.bind(this,10));
+    console.log(CalAge);
+    let name=(function(){
+        console.log("Muhammad salman Asif")
+    })
+    name();
+</script>
+</html>

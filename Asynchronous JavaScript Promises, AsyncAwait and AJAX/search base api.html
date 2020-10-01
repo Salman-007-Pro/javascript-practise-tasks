@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search base weather api in javascript</title>
+</head>
+
+<body>
+    <h1>Search base api in javascript</h1>
+</body>
+<script>
+    let search = prompt("enter the county: ");
+    async function getWeatherInfo(query) {
+        try {
+            let dataJson, data, data1, woeidNo;
+            dataJson = await fetch(`https://www.metaweather.com/api/location/search/?query=${query}`);
+            data = await dataJson.json();
+            try {
+                woeidNo = await fetch(`https://www.metaweather.com/api/location/${data[0].woeid}/`);
+                data1 = await woeidNo.json();
+            } catch (error) {
+                console.log(error,"hello world")
+            }
+
+            console.log(data);
+            console.log(data1);
+            const ajj = data1.consolidated_weather[0];
+            console.log(ajj);
+            console.log(`The country Name:${data1.parent.title} and City name:${data1.title}`);
+            console.log(
+                `ajj ka high temperature:${ajj.max_temp} aur low temperature:${ajj.min_temp} and weather name:${ajj.weather_state_name}`
+            )
+            return ajj;
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+    getWeatherInfo(search).then(data => console.log(data, "Muhammad Salman Asif"));
+</script>
+
+</html>

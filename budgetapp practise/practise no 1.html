@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practise no 1</title>
+</head>
+<body>
+    <h1>Practise no 1</h1>
+</body>
+<script>
+    let budgetController=(function(){
+        let x=10;
+        let add=function(a){
+            return x+a;
+        }
+
+        return{
+            test:function(a){
+                return add(a);
+            }
+        }
+    })();
+    let UIController=(function(){
+        let z=budgetController;
+        return{
+            test1:function(a){
+                return z.test(a);
+            }
+        }
+    })(budgetController);
+    console.log(modelController.test1(13));
+</script>
+</html>

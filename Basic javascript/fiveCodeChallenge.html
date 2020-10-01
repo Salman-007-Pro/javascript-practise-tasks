@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codeing Challenge # 5</title>
+    <style>
+        *,*::after,*::before{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 10px;
+        }
+        body{
+            line-height: 1.7;
+        }
+        .heading-primary{
+            text-align: center;
+            text-transform: uppercase;
+            color:transparent;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+            -webkit-background-clip: text;
+            margin: 0 auto;
+            font-size:4rem;
+        }
+        .heading-primary--main{
+            display:block;
+        }
+        .paragraph{
+            font-size:1.6rem ;
+            margin:5rem 4rem 0 4rem;
+            text-align: justify;
+        }
+        .paragraph__setting{
+            text-align: center;
+            display:block;
+            margin-bottom: 2rem;
+        }
+        .paragraph__ulist{
+            display: inline-block;
+            list-style: none;
+            margin-left: 11rem;
+            padding: 5px;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+        }
+        .paragraph__ulist li{   
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading-primary">
+        <span class="heading-primary-main">Code Challenge # 5</span>
+    </h1>
+    <div class="paragraph">
+    <p class="paragraph__setting">
+       Q: Remember the tip calculator challenge? let create a more advanced version using everything we learned!
+       This time, john and his family went to 5 different restaurants. The Bills were $124, $48, $268, $180 and $42.
+        John likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is between $50 and $200, and 10% if the bill is more than $200.
+        Implement a tip calculator using objects and loops:
+        <ul class=paragraph__ulist>
+            <li>1. Create an object with an array for the bill values.</li>
+            <li>2. Add a method to calculate the tip.</li>
+            <li>3. This method should include a loop to iterate over all paid bills and do the tip calculations.</li> 
+            <li>4. As an output, create 1) a new array containing all tips, and 2) an array containing final paid amounts (bill + tip). HINT: start with two empty arrays[] as properties and then fill them up in the loop</li>
+        </ul>
+    </p>
+</div>
+<script>
+/*****************************
+* CODING CHALLENGE 5
+*/
+
+/*
+Remember the tip calculator challenge? Let's create a more advanced version using everything we learned!
+
+This time, John and his family went to 5 different restaurants. The bills were $124, $48, $268, $180 and $42.
+John likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is between $50 and $200, and 10% if the bill is more than $200.
+
+Implement a tip calculator using objects and loops:
+1. Create an object with an array for the bill values
+2. Add a method to calculate the tip
+3. This method should include a loop to iterate over all the paid bills and do the tip calculations
+4. As an output, create 1) a new array containing all tips, and 2) an array containing final paid amounts (bill + tip). HINT: Start with two empty arrays [] as properties and then fill them up in the loop.
+
+
+EXTRA AFTER FINISHING: Mark's family also went on a holiday, going to 4 different restaurants. The bills were $77, $375, $110, and $45.
+Mark likes to tip 20% of the bill when the bill is less than $100, 10% when the bill is between $100 and $300, and 25% if the bill is more than $300 (different than John).
+
+5. Implement the same functionality as before, this time using Mark's tipping rules
+6. Create a function (not a method) to calculate the average of a given array of tips. HINT: Loop over the array, and in each iteration store the current sum in a variable (starting from 0). After you have the sum of the array, divide it by the number of elements in it (that's how you calculate the average)
+7. Calculate the average tip for each family
+8. Log to the console which family paid the highest tips on average
+
+GOOD LUCK 😀
+,*/
+var john={
+    bills:[124,48,180,42],
+    tips:[],
+    total:[],
+    calTip:function(){
+        for(i=0;i<this.bills.length;i++){
+            if (this.bills[i]<50){
+                this.tips.push(this.bills[i]*0.2)
+            }
+            else if(this.bills[i]>=50 && this.bills[i]<=200){
+                this.tips.push(this.bills[i]*0.15)
+            }
+            else{
+                this.tips.push(this.bills[i]*0.1)
+            }
+        }
+        for(i=0;i<this.bills.length;i++){
+            this.total.push(this.bills[i]+this.tips[i])
+        }
+    },
+    calAvg:function(){
+        sum=0;
+        for(i=0;i<this.bills.length;i++){
+            sum+=this.tips[i]
+        }
+        this.avg=sum/this.tips.length
+    }
+}
+var mary={
+    bills:[77,375,110,45],
+    tips:[],
+    total:[],
+    calTip:function(){
+        for(i=0;i<this.bills.length;i++){
+            if (this.bills[i]<100){
+                this.tips.push(this.bills[i]*0.2)
+            }
+            else if(this.bills[i]>=100 && this.bills[i]<=300){
+                this.tips.push(this.bills[i]*0.1)
+            }
+            else{
+                this.tips.push(this.bills[i]*0.25)
+            }
+        }
+        for(i=0;i<this.bills.length;i++){
+            this.total.push(this.bills[i]+this.tips[i])
+        }
+    },
+    calAvg:function(){
+        sum=0;
+        for(i=0;i<this.bills.length;i++){
+            sum+=this.tips[i]
+        }
+        this.avg=sum/this.tips.length
+    }
+}
+john.calTip()
+john.calAvg()
+
+mary.calTip()
+mary.calAvg()
+
+john.avg!=mary.avg ? (john.avg>mary.avg ? console.log("The john family paid highest tip is "+john.avg) : console.log("The mary family paid highest tip is "+mary.avg)) : console.log("The Both avg is Same")
+</script>
+
+</body>
+</html>

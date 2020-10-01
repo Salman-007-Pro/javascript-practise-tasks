@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes in Javascript</title>
+</head>
+<body>
+    <h1>Classes in Javascript</h1>
+</body>
+<script>
+    //ES5
+    let Person5=function(name,year,country){
+        this.name=name;
+        this.year=year;
+        this.country=country;
+    }
+    Person5.prototype.calAge=function(){
+        let now=new Date().getFullYear();
+        this.age=now-this.year;
+    }
+    let salman= new Person5("Muhammad Salman Asif",1997,"Pakistan");
+    salman.calAge();
+    console.log(salman.age);
+
+    //ES6
+    class Person6{
+        constructor(name,year,country){
+            this.name=name;
+            this.year=year;
+            this.country=country;
+            this.now=new Date().getFullYear();
+        }
+        calAge(){
+            this.age=this.now-this.year;
+            console.log(this.age);
+        }
+        static greeting(){
+            console.log("Assalamualaikum kia haal hai aap ke");
+        }
+    }
+    let Ali=new Person6("Muhammad Ali",1995,"Pakistan");
+    Ali.calAge();
+    Person6.greeting();
+</script>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codeing Challenge # 2</title>
+    <style>
+        *,*::after,*::before{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 10px;
+        }
+        body{
+            line-height: 1.7;
+        }
+        .heading-primary{
+            text-align: center;
+            text-transform: uppercase;
+            color:transparent;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+            -webkit-background-clip: text;
+            margin: 0 auto;
+            font-size:4rem;
+        }
+        .heading-primary--main{
+            display:block;
+        }
+        .paragraph{
+            font-size:1.6rem ;
+            margin:5rem 4rem 0 4rem;
+            text-align: justify;
+        }
+        .paragraph__setting{
+            text-align: center;
+            display:block;
+            margin-bottom: 2rem;
+        }
+        .paragraph__ulist{
+            display: inline-block;
+            list-style: none;
+            margin-left: 11rem;
+            padding: 5px;
+            background-image: linear-gradient(to right,#f5af19,#f12711);
+        }
+        .paragraph__ulist li{   
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading-primary">
+        <span class="heading-primary-main">Code Challenge # 2</span>
+    </h1>
+    <div class="paragraph">
+    <p class="paragraph__setting">
+       Q: John and Mike both play basketball in different teams. In the lastest 3 games, John's team scored 89, 120 and 103 points, while Mike's team scored 116, 94 and 123 points.
+        <ul class=paragraph__ulist>
+            <li>1. Calculate the average score for each team.</li>
+            <li>2. Decide which teams wins in average (highest average score), and print the winner to the console. Also include the average score in the output.</li>
+            <li>3. Then change the scores to show different winners. Donot forget to take into account there might be a draw (the same average score)</li> 
+            <li>4. Extra: Mary also plays basketball, and her team scored 97, 134 and 105 points. Like before, log the average winner to the console. HINT: you will need the && operator to take the decision. if you can not solve this one, just watch the solution, its no problem</li>
+            <li>5. Like before, change the scores to generate different winners, keeping in mind there might be draws.</li>
+        </ul>
+    </p>
+</div>
+<script>
+//Teams
+var johnTeam=[89,120,103]
+var mikeTeam=[116,94,123]
+var maryTeam=[97,134,105]
+
+//sum
+johnSum=sumTeam(johnTeam)
+marySum=sumTeam(maryTeam)
+mikeSum=sumTeam(mikeTeam)
+
+//average
+johnAverage=average(johnSum)
+maryAverage=average(marySum)
+mikeAverage=average(mikeSum)
+
+console.log("john team Average: "+johnAverage)
+console.log("mary team Average: "+maryAverage)
+console.log("mike team Average: "+mikeAverage)
+//john and mary comparsion
+johnAverage!=maryAverage ? (johnAverage>maryAverage ? console.log("The john team is Winner") : console.log("The Mary team is Winner") ) : console.log("The match is Draw")
+console.log("Next\n")
+//john, mary and mike comparsion
+if ( johnAverage!=maryAverage && johnAverage!=mikeAverage && mikeAverage!=maryAverage){
+    if (johnAverage>maryAverage && johnAverage>mikeAverage){
+        console.log("The Winner team is John")
+    }
+    else if (maryAverage>johnAverage && maryAverage>mikeAverage){
+        console.log("The Winner team is Mary")
+    }
+    else{
+        console.log("The Winner team is Mike")
+    }
+}
+else if (johnAverage==maryAverage && johnAverage!=mikeAverage && mikeAverage>johnAverage) {
+    console.log("1")
+    console.log("The Draw between john and mary && The winner is Mike team")
+}
+else if (johnAverage==maryAverage && johnAverage!=mikeAverage && mikeAverage<johnAverage) {
+    console.log("2")
+    console.log("The Draw between john and mary && The loser is Mike team")
+}
+else if (johnAverage==mikeAverage && johnAverage!=maryAverage && maryAverage>johnAverage) {
+    console.log("3")
+    console.log("The Draw between john and mike && The winner is Mary team")
+}
+else if (johnAverage==mikeAverage && johnAverage!=maryAverage && maryAverage<johnAverage) {
+    console.log("4")
+    console.log("The Draw between john and mike && The loser is Mary team")
+}
+else if (mikeAverage==maryAverage && mikeAverage!=johnAverage && johnAverage>mikeAverage) {
+    console.log("5")
+    console.log("The Draw between mike and mary && The winner is John team")
+}
+else if (mikeAverage==maryAverage && mikeAverage!=johnAverage && johnAverage<mikeAverage) {
+    console.log("6")
+    console.log("The Draw between mike and mary && The loser is John team")
+}
+else{
+    console.log("The match is Draw")
+}
+
+function sumTeam(item){
+    sum=0;
+    for (i = 0; i < item.length; i++){
+        sum+=item[i]
+    }
+    return sum
+}
+function average(a){
+    return a/3;
+}
+</script>
+
+</body>
+</html>

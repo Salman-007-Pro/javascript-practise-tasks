@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practise reduce aur filter method in javascript</title>
+</head>
+<body>
+    <h1>Practise with reduce and filter mathod in javascript</h1>
+</body>
+<script>
+    let age=[14,26,48,97,6,31,35];
+    let sumFn=age.reduce((acc,cur)=>{
+        acc+=cur
+        return acc;
+    },0)
+    console.log(sumFn);
+    let sum=0;
+    age.forEach(cur=>sum+=cur);
+    console.log(sum);
+    let some=age.filter(el => el>18);
+    console.log(some);
+</script>
+</html>
